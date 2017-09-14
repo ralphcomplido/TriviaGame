@@ -1,51 +1,83 @@
 $(document).ready(function() {
-function gameOn() {
-  fiveSeconds();
-	$("#start-game").hide();
-  $("#options").show();
-  
 
-var timer = 10;
-var intervalId;
-var userGuess;
-var correctAnswer = "testing";
+    var timer = 10;
+    var intervalId;
+    var userGuess = 0;
 
- function fiveSeconds() {
- 	run();
- 	function run() {
-      intervalId = setInterval(decrement, 1000);
+
+    function gameOn() {
+        run();
+        $("#start-game").hide();
+        $("#options").show();
+        $("#times-up").hide();
     }
 
-function decrement() {
-		$("#question").html(questions.Q1.question);
-    $("#option-1").html(questions.Q1.a);
-    $("#option-2").html(questions.Q1.b);
-    $("#option-3").html(questions.Q1.c);
-    $("#option-4").html(questions.Q1.d);
- 	timer--;
+    function run() {
+        intervalId = setInterval(decrement, 1000);
+        timer = 10;
+    }
 
- 		$("#timer").html("<h2>" + timer + "</h2>");
- 		if (timer === 0) {
-      	$("#game-status").empty();
-      	$("#game-status").html("<h2>Time's Up!</h2>");
-      	clearInterval(intervalId);
-      	timer = 10;
-      	gameOn();
-      	
-      } 
-        // in the element with an id of time-left add an h2 saying About 10 Seconds Left!
-       }
-        $("#game-status").html("<h2>About 10 Seconds Left!</h2>");
-        // console log 10 seconds left
+    function decrement() {
+        timer--;
+        chooseQuestion();
 
-      }
-      
-}
-$("#options").hide();
-$("#start-game").on("click", function() {
-   gameOn();
+        function chooseQuestion() {
+            for (var key in questions) {
+                if (userGuess === 0) {
+                    $("#timer").html("<h2> Time Remaining: " + timer + "</h2>");
+                    $("#options").show();
+                    $("#question").html(questions[key].question);
+                    $("#option-1").html(questions[key].a);
+                    $("#option-2").html(questions[key].b);
+                    $("#option-3").html(questions[key].c);
+                    $("#option-4").html(questions[key].d);
+                    newQuestion();
+
+                    $(".choose").click(function() {
+                        userGuess = 1;
+                        var answer = this.innerHTML;
+                        if (answer === questions[key].correctAnswer) {
+                            clearInterval(intervalId);
+                            $("#times-up").show();
+                            $("#times-up").html("<h2>Your answer is correct! " + questions[key].correctAnswer + "</h2>");
+                            setTimeout(gameOn, 3000);
+                            userGuess = 0;
+                        } else {
+                            clearInterval(intervalId);
+                            $("#times-up").show();
+                            $("#times-up").html("<h2>Your answer is wrong! The Correct answer is : " + questions[key].correctAnswer + "</h2>");
+                            setTimeout(gameOn, 3000);
+                            userGuess = 0;
+                        }
+                    });
+
+                }
+            };
 
 
-   });
+        }
 
+    }
+
+
+    function newQuestion() {
+        if (timer === 0) {
+            userGuess = 0;
+            $("#options").hide();
+            $("#times-up").show();
+            $("#times-up").html("<h2>Time's Up!</h2>");
+            clearInterval(intervalId);
+            $("#start-game").show();
+        }
+    }
+
+
+
+
+    $("#options").hide();
+    $("#start-game").on("click", function() {
+        gameOn();
+
+
+    });
 });

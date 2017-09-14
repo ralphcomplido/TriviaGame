@@ -5,7 +5,7 @@ var questions = {
         b: "B. Phoebe",
         c: "C. Miriam",
         d: "D. Jemima",
-        correctAnswer: "C: Miriam"
+        correctAnswer: "C. Miriam"
     },
     Q2: {
         question: "What did the children of Israel call the bread? (Exodus 16:15)",
