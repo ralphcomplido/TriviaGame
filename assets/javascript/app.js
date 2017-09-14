@@ -1,22 +1,14 @@
 $(document).ready(function() {
 function gameOn() {
+  fiveSeconds();
 	$("#start-game").hide();
+  $("#options").show();
+  
 
 var timer = 10;
 var intervalId;
 var userGuess;
 var correctAnswer = "testing";
-// var questions = {
-//   Q1: {
-//    question: "What was the name of Moses' sister?",
-//    a: "A. Naamah",
-//    b: "B. Phoebe",
-//    c: "C. Miriam",
-//    d: "D. Jemima",
-//    correctAnswer: "C: Miriam"
-//   }
-// }
-setTimeout(fiveSeconds, 1000);
 
  function fiveSeconds() {
  	run();
@@ -26,6 +18,10 @@ setTimeout(fiveSeconds, 1000);
 
 function decrement() {
 		$("#question").html(questions.Q1.question);
+    $("#option-1").html(questions.Q1.a);
+    $("#option-2").html(questions.Q1.b);
+    $("#option-3").html(questions.Q1.c);
+    $("#option-4").html(questions.Q1.d);
  	timer--;
 
  		$("#timer").html("<h2>" + timer + "</h2>");
@@ -45,9 +41,10 @@ function decrement() {
       }
       
 }
-
+$("#options").hide();
 $("#start-game").on("click", function() {
    gameOn();
+
 
    });
 
