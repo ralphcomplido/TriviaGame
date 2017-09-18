@@ -19,7 +19,7 @@ $(document).ready(function() {
             $("#timer").html("<h2> Time Remaining: " + timer + "</h2>");
             chooseQuestion();
         } else {
-            $("#game").hide();
+            $("#game-content").hide();
             $("#game-result").html("<h2><p>Game Over</p></h2>");
             $("#game-result").append("<h2><p>Correct Answers: " + correctAnswers + "</p></h2>");
             $("#game-result").append("<h2><p>Wrong Answers: " + wrongAnswers + "</p></h2>");
@@ -114,6 +114,7 @@ $(document).ready(function() {
 
     $("#options").hide();
     $("#start-game").on("click", function() {
+        $("#game").hide();
         gameOn();
 
 
