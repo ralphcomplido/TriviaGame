@@ -10,16 +10,24 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
+    <div class="row justify-content-center">
+        <div class="col" id="game-result"></div>
+    </div>
+    <div class="container" id="game">
+        <div class="row justify-content-center">
+            <div class="col" id="bible-trivia">Bible Trivia Quiz</div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col">
+                <button id="start-game">Start Game</button>
+            </div>
+        </div>
+        <div class="row justify-content-center">
             <div id="timer"></div>
         </div>
-        <div class="row">
-            <button id="start-game">Start Game</button>
+        <div class="row justify-content-center" id="times-up">
         </div>
-        <div class="row" id="times-up">
-         </div>
-         <div class="row" id="options">
+        <div class="row justify-content-center" id="options">
             <div class="col-md-12">
                 <div id="question"></div>
             </div>
@@ -35,7 +43,7 @@
             <div class="col-md-12">
                 <button class="choose" id="option-4"></button>
             </div>
-       </div>
+        </div>
     </div>
     <script src="assets/javascript/questions.js" type="text/javascript"></script>
     <script src="assets/javascript/app.js" type="text/javascript"></script>

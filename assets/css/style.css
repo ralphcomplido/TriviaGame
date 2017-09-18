@@ -1,0 +1,17 @@
+html, body {
+	background: url("../images/main-background.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover; /* For WebKit*/
+    -moz-background-size: cover;    /* Mozilla*/
+    -o-background-size: cover;      /* Opera*/
+    background-size: cover;      /* Generic*/
+}
+
+h2, #start-game, #bible-trivia, .choose, #question, #timer, #times-up, #game-result {
+	text-align: center;
+	color: blue;
+	margin: 20px;
+	background: green;
+	border: red;
+	font-size: 50px;
+}
+

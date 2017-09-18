@@ -1,6 +1,6 @@
 var questions = {
     Q1: {
-        question: "What was the Full name of Moses' sister?",
+        question: "What was the name of Moses' sister?",
         a: "A. Naamah",
         b: "B. Phoebe",
         c: "C. Miriam",
